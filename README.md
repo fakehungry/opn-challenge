@@ -1,63 +1,70 @@
-# Opn Code Challenges
+<p align="center">
+  <a href='https://www.omise.co'>
+    <img src="https://cdn.omise.co/assets/omise-logo/omise-wordmark.png" width="300" />
+  </a>
+</p>
 
-This repository houses the code challenges for Opn. These are small hands-on
-projects that are very relevant to the tasks you will be working on here.
+**Tamboon React** is a code challenge for frontend developer.
 
-### Ground Rules
+## Scenario
 
-* We prefer well-thought-out solutions over the quick-and-dirty kind. So take
-  your time, if you need it.
-* Average completion time so far has been around one to two weeks.
-* Submission is done via a
-  [git format-patch](https://git-scm.com/docs/git-format-patch). Send your patch
-  to the hiring team.
+Once upon a time.. nope!  
+So here, you have been temporarily hired by Omise and assigned to work on the charity donation project which the previously assigned front-end developer and designer got the urgent matters to solve, so they will not be able to finish the project on time..
 
-### What to expect
+Fortunately, the API server is already done. You will need to grab on the requirements and complete the project while ensuring the application to have great engineering and well-design ✨
 
-We do understand that our code challenges are time intensive and not always easy
-to execute. We do recognize and value the time and effort applicants put into
-their submission. Our Code Challenges reflect some of the tasks and skills you'd
-need while working with us. We believe that these *take-home* challenges will
-give you a deeper understanding of our product, what you'd be working on in the
-future and what level of commitment we look for in applicants.
+![tamboon-react-screenshot](https://git.omise.co/storage/user/56/files/b407c6c4-ad09-11e7-8792-dc5b468333df)
 
-### What we look for
+## Mission
 
-Rather than a complex solution, which added a million features and is written in
-10,000 lines of code, we look for:
+Well, grap your guns, stock up your food and bring down your armor. We gonna need it for tonight!  
+**Here are the tasks you must complete:**
 
-* **Clarity:** You can write clear code that any devs could read and understand
-  in one go.
-* **Simplicity:** You can write gimmick-free and straightforward code with no
-  ambiguities.
-* **Defensiveness:** You can cover edge cases and treat user inputs with care.
+- [ ] Complete the application according to the design (image above).
+- [ ] Complete these features that are not in the design (you have freedom to design and position to display).
+  - Display all donation amount.
+  - Display a message when paid.
+- [ ] Make the donation feature works correctly.
+  - Amount in all donations should be displayed correctly despite users close and come back later.
+  - Database (db.json) should have the new valid data when paid.
+- [ ] Refactor the code to be more readable and enhance reusability.
+- [ ] Use [styled-component](https://www.styled-components.com/), [JSS](https://cssinjs.org/) or CSS, for styling part.
+- [ ] Write a nice commit message and order it well.
+- [ ] Display well in most modern browser (Google Chrome, Safari, Firefox).
 
-### What happens after your submission
+#### Bonus
 
-Once you have submitted your solution by sending us the **git-format-patch**,
-our Engineers will review the code. Due to the number of submissions we receive,
-and time-intensive review process, it might take us **1 week** to give you
-feedback on the submission. Based on the feedback, we will invite you for a
-meeting to talk more about your submission and continue the recruitment process.
+- [ ] Supporting different screen sizes (responsive).
+- [ ] Write helpers or components unit tests with [jest](https://facebook.github.io/jest/).
 
-### Challenges
+## Rules
 
-Pick the one that most suites the position you wish to apply.
+Desire to win the war? Well, to make it a little more fun, please remember that
 
-**Opn**
+**You cannot:**
 
-* Backend / Go - [go-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-go)
-* Backend / Elixir - [elixir-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-elixir)
-* Backend / Phoenix / Elixir - [phoenix-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-phoenix)
-* Devops / Kubernetes [challenge-devops](https://github.com/opn-ooo/challenges/tree/master/challenge-devops)
-* Frontend / React - [tamboon-react](https://github.com/opn-ooo/challenges/tree/master/challenge-react)
-* Mobile App / iOS and Android - [challenge-mobile](https://github.com/opn-ooo/challenges/tree/master/challenge-mobile)
-* Design / UX - [design-challenge](https://github.com/opn-ooo/challenges/blob/master/design-challenge.pdf)
+- Change existing behaviors.
+- Change the API server.
+- Change from JavaScript/TypeScript to other languages.
 
-### Have fun and we look forward to your submission!
+**In the other hand, feel free to:**
 
+- Improve the design to have better UI and UX.
+- Re-organize the codebase.
+- Create new modules/methods/components.
+- Modify existing code.
+- Add new packages.
+- Update `webpack` config.
+- Change language from JavaScript to TypeScript.
+- Take reasonable time to complete the challenge, no need to rush.
+- Edit `README.md` to add documentation. What have you done or how to run or test your app?
 
-<h2>
-ᕙ(⇀‸↼‶)ᕗ
-</h2>
+**Note**: You can see design inside folder `resources`.
 
+## Surprise us!
+
+You can push the project to your Github then share the link with us, or you can zip the project and send it back to us as well. Your commit message must communicate clearly what has been done in each commit.
+
+If you notice more bugs in the original implementation you can add fixes for those as well. You won't be penalized if you don't. However we ask you not to add more features than the one given in the mission list.
+
+Let's rock! :metal:
