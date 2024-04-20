@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button component should render button with text and match previous snapshot 1`] = `
+<div>
+  <button
+    class="sc-beySPh iLXLnS test-btn"
+  >
+    Button
+  </button>
+</div>
+`;
