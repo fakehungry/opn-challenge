@@ -11,3 +11,5 @@ build
 *storybook.log
 
 .DS_Store
+
+/coverage

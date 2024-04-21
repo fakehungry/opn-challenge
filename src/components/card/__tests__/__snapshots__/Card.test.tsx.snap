@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`card component should render card component and match snapshot 1`] = `
+<div>
+  <div
+    class="sc-beySPh qiqXI"
+    imgalt="Baan Kru Noi"
+    imgsrc="/images/baan-kru-noi.jpg"
+    place="Baan Kru Noi"
+  >
+    <img
+      alt="Baan Kru Noi"
+      src="/images/baan-kru-noi.jpg"
+    />
+    <div
+      class="row"
+    >
+      <h2>
+        Baan Kru Noi
+      </h2>
+      <button
+        class="sc-guDLey hsxNFn"
+      >
+        Donate
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card component should render card component with overlay and match snapshot 1`] = `
+<div>
+  <div
+    class="sc-beySPh qiqXI"
+    imgalt="Baan Kru Noi"
+    imgsrc="/images/baan-kru-noi.jpg"
+    place="Baan Kru Noi"
+  >
+    <img
+      alt="Baan Kru Noi"
+      src="/images/baan-kru-noi.jpg"
+    />
+    <div
+      class="row"
+    >
+      <h2>
+        Baan Kru Noi
+      </h2>
+      <button
+        class="sc-guDLey hsxNFn"
+      >
+        Donate
+      </button>
+    </div>
+    <div
+      class="overlay overlay-anim"
+    >
+      <svg
+        data-testid="x-mark-icon"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+          fill="#5e6778"
+        />
+      </svg>
+      <div
+        class="column"
+      >
+        <h2>
+          Select the amount to donate (THB)
+        </h2>
+        <div
+          class="radio-group"
+        >
+          <label
+            class="sc-hLQSwg ixbFbr"
+            for="10"
+          >
+            <input
+              class="sc-dmyCSP gYNgzD"
+              id="10"
+              name="donate"
+              type="radio"
+              value="10"
+            />
+            <span>
+              10
+            </span>
+          </label>
+          <label
+            class="sc-hLQSwg ixbFbr"
+            for="20"
+          >
+            <input
+              class="sc-dmyCSP gYNgzD"
+              id="20"
+              name="donate"
+              type="radio"
+              value="20"
+            />
+            <span>
+              20
+            </span>
+          </label>
+          <label
+            class="sc-hLQSwg ixbFbr"
+            for="50"
+          >
+            <input
+              class="sc-dmyCSP gYNgzD"
+              id="50"
+              name="donate"
+              type="radio"
+              value="50"
+            />
+            <span>
+              50
+            </span>
+          </label>
+          <label
+            class="sc-hLQSwg ixbFbr"
+            for="100"
+          >
+            <input
+              class="sc-dmyCSP gYNgzD"
+              id="100"
+              name="donate"
+              type="radio"
+              value="100"
+            />
+            <span>
+              100
+            </span>
+          </label>
+          <label
+            class="sc-hLQSwg ixbFbr"
+            for="500"
+          >
+            <input
+              class="sc-dmyCSP gYNgzD"
+              id="500"
+              name="donate"
+              type="radio"
+              value="500"
+            />
+            <span>
+              500
+            </span>
+          </label>
+        </div>
+        <button
+          class="sc-guDLey hsxNFn"
+        >
+          Pay
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
