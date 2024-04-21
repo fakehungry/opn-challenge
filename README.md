@@ -4,67 +4,59 @@
   </a>
 </p>
 
-**Tamboon React** is a code challenge for frontend developer.
+**Tamboon React** is a code challenge for frontend developer. [Tamboon](https://github.com/opn-ooo/challenges/tree/master/challenge-react)
 
-## Scenario
+## How to run this project
 
-Once upon a time.. nope!  
-So here, you have been temporarily hired by Omise and assigned to work on the charity donation project which the previously assigned front-end developer and designer got the urgent matters to solve, so they will not be able to finish the project on time..
+- Clone the project
 
-Fortunately, the API server is already done. You will need to grab on the requirements and complete the project while ensuring the application to have great engineering and well-design ✨
+```
+git clone https://github.com/fakehungry/opn-challenges-react.git
+```
 
-![tamboon-react-screenshot](https://git.omise.co/storage/user/56/files/b407c6c4-ad09-11e7-8792-dc5b468333df)
+- Download repositories and wait for everything completed.
 
-## Mission
+```sh
+yarn
+```
 
-Well, grap your guns, stock up your food and bring down your armor. We gonna need it for tonight!  
-**Here are the tasks you must complete:**
+- Start server. If everything fine, you will see smiling face. It take port 3001 to run.
 
-- [ ] Complete the application according to the design (image above).
-- [ ] Complete these features that are not in the design (you have freedom to design and position to display).
-  - Display all donation amount.
-  - Display a message when paid.
-- [ ] Make the donation feature works correctly.
-  - Amount in all donations should be displayed correctly despite users close and come back later.
-  - Database (db.json) should have the new valid data when paid.
-- [ ] Refactor the code to be more readable and enhance reusability.
-- [ ] Use [styled-component](https://www.styled-components.com/), [JSS](https://cssinjs.org/) or CSS, for styling part.
-- [ ] Write a nice commit message and order it well.
-- [ ] Display well in most modern browser (Google Chrome, Safari, Firefox).
+```sh
+yarn server
+```
 
-#### Bonus
+- Start development. Go to your browser and browse to localhost:3000
 
-- [ ] Supporting different screen sizes (responsive).
-- [ ] Write helpers or components unit tests with [jest](https://facebook.github.io/jest/).
+```sh
+yarn client
+```
 
-## Rules
+- To test the whole project
 
-Desire to win the war? Well, to make it a little more fun, please remember that
+```sh
+yarn jest -u
+```
 
-**You cannot:**
+- To see test coverage
 
-- Change existing behaviors.
-- Change the API server.
-- Change from JavaScript/TypeScript to other languages.
+```sh
+yarn jest --coverage
+```
 
-**In the other hand, feel free to:**
+- To see document of components. Go to your browser and browse to localhost:6006.
 
-- Improve the design to have better UI and UX.
-- Re-organize the codebase.
-- Create new modules/methods/components.
-- Modify existing code.
-- Add new packages.
-- Update `webpack` config.
-- Change language from JavaScript to TypeScript.
-- Take reasonable time to complete the challenge, no need to rush.
-- Edit `README.md` to add documentation. What have you done or how to run or test your app?
+```sh
+yarn storybook
+```
 
-**Note**: You can see design inside folder `resources`.
+## What I have done
 
-## Surprise us!
-
-You can push the project to your Github then share the link with us, or you can zip the project and send it back to us as well. Your commit message must communicate clearly what has been done in each commit.
-
-If you notice more bugs in the original implementation you can add fixes for those as well. You won't be penalized if you don't. However we ask you not to add more features than the one given in the mission list.
-
-Let's rock! :metal:
+1. Reorganize project structure and update some repositories.
+2. Setup [Storybook](https://storybook.js.org/) to documenting components.
+3. Setup global styles and theme provider with [styled-component](https://www.styled-components.com/) and [react context](https://react.dev/reference/react/hooks#context-hooks).
+4. Setup [jest](https://jestjs.io/) unit testing.
+5. Create components, stories, and unit testing.
+6. Setup [redux](https://redux.js.org/).
+7. Integrate components in home page.
+8. Complete payment feature and notify user with toast after they pay.
