@@ -3,7 +3,7 @@
 exports[`card component should render card component and match snapshot 1`] = `
 <div>
   <div
-    class="sc-beySPh qiqXI"
+    class="sc-beySPh jYeiKW"
     imgalt="Baan Kru Noi"
     imgsrc="/images/baan-kru-noi.jpg"
     place="Baan Kru Noi"
@@ -31,7 +31,7 @@ exports[`card component should render card component and match snapshot 1`] = `
 exports[`card component should render card component with overlay and match snapshot 1`] = `
 <div>
   <div
-    class="sc-beySPh qiqXI"
+    class="sc-beySPh jYeiKW"
     imgalt="Baan Kru Noi"
     imgsrc="/images/baan-kru-noi.jpg"
     place="Baan Kru Noi"

@@ -6,6 +6,7 @@ const config = {
     publicPath: '/dist/',
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
+    hashFunction: 'sha256',
   },
 
   devtool: 'inline-source-map',

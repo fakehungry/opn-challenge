@@ -6,10 +6,14 @@ export const Container = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 500px;
 
   img {
     border-radius: 8px 8px 0 0;
     width: 100%;
+    height: 250px;
+    object-fit: cover;
   }
 
   .row {
@@ -27,7 +31,7 @@ export const Container = styled.div`
 
   .overlay {
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+    border-radius: 8px;
     color: ${({ theme }) => theme.colors.tertiary};
     display: flex;
     flex-direction: column;
@@ -74,5 +78,17 @@ export const Container = styled.div`
   .radio-group {
     display: flex;
     gap: 16px;
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    width: 300px;
+
+    img {
+      height: 150px;
+    }
+
+    h2 {
+      font-size: 14px;
+    }
   }
 `;
