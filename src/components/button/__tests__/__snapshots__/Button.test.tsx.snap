@@ -3,7 +3,7 @@
 exports[`button component should render button with text and match previous snapshot 1`] = `
 <div>
   <button
-    class="sc-beySPh iLXLnS test-btn"
+    class="sc-beySPh gMOBE test-btn"
   >
     Button
   </button>

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  border: 1px solid #386bee;
-  color: #386bee;
+  border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
+  color: ${({ theme }) => theme.colors.primary};
   background-color: transparent;
   border-radius: 6px;
   padding: 8px 12px;
@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background-color: #386bee;
+    background-color: ${({ theme }) => theme.colors.primary};
     color: white;
   }
 `;
