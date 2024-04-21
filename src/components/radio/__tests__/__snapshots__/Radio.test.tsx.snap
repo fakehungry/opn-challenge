@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`radio component should render radio with label and match previous snapshot 1`] = `
+<div>
+  <label
+    class="sc-guDLey cmzxpj"
+  >
+    <input
+      class="sc-beySPh kjPIbG"
+      type="radio"
+    />
+    <span>
+      Radio
+    </span>
+  </label>
+</div>
+`;
