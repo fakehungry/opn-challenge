@@ -11,14 +11,18 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   imgsrc: string;
   imgalt: string;
   donateBtnProps?: ButtonProps;
-  payBtnProps?: ButtonProps;
+  payBtnProps?: Omit<ButtonProps, 'onClick'>;
+  handlerPay?: (amount: number) => void;
 }
 
 export const Card = (props: CardProps) => {
-  const { place, imgsrc, imgalt, donateBtnProps, payBtnProps } = props;
+  const { place, imgsrc, imgalt, donateBtnProps, payBtnProps, handlerPay } =
+    props;
+
   const theme = useTheme();
 
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [selectedAmount, setSelectedAmount] = useState(0);
 
   return (
     <Container {...props}>
@@ -46,14 +50,24 @@ export const Card = (props: CardProps) => {
               {donateAmount.map((amount) => (
                 <Radio
                   key={amount}
-                  id={amount.toString()}
-                  name="donate"
+                  id={`donate-${place}-${amount}`}
+                  name={`donate-${place}`}
                   value={amount}
                   label={amount.toString()}
+                  checked={selectedAmount === amount}
+                  onChange={(e) => setSelectedAmount(Number(e.target.value))}
                 />
               ))}
             </div>
-            <Button {...payBtnProps}>Pay</Button>
+            <Button
+              onClick={() => {
+                setIsOverlayVisible(false);
+                handlerPay && handlerPay(selectedAmount);
+              }}
+              {...payBtnProps}
+            >
+              Pay
+            </Button>
           </div>
         </div>
       ) : null}

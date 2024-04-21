@@ -1,14 +1,17 @@
-import React, { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import fetch from 'isomorphic-fetch';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import { summaryDonations } from './helpers/summary-donation';
 import Card from './components/card';
-import { Charity, Payment } from './types/donation';
+import { Charity } from './types/donation';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { updateDonation } from './features/donations/donation-slice';
+import toast, { Toaster } from 'react-hot-toast';
 
 const App = () => {
-  const [charities, setCharities] = useState([]);
-  const [payments, setPayments] = useState([]);
+  const [charities, setCharities] = useState<Charity[]>([]);
+  const donate = useAppSelector((state) => state.donations.donate);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     fetch('http://localhost:3001/charities')
@@ -24,17 +27,49 @@ const App = () => {
         return resp.json();
       })
       .then(function (data) {
-        setPayments(data);
+        dispatch(
+          updateDonation(
+            summaryDonations(data.map((item: any) => item.amount)),
+          ),
+        );
       });
   }, []);
+
+  const handlerPay = async (id: number, amount: number, currency: string) => {
+    if (amount === 0) {
+      toast.error('Please select the amount to donate');
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:3001/payments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          charitiesId: id,
+          amount,
+          currency,
+        }),
+      });
+
+      if (res.ok) {
+        dispatch(updateDonation(amount));
+        const data = await res.json();
+        toast.success(
+          `${amount} ${currency} has been donated to ${charities[id - 1].name} successfully`,
+        );
+      }
+    } catch (error) {
+      toast.error('Something went wrong, please try again');
+    }
+  };
 
   return (
     <Layout>
       <h1 className="title">Omise Tamboon React</h1>
-      <h2 className="total-payment">
-        Total Donations:{' '}
-        {summaryDonations(payments.map((item: Payment) => item?.amount))} THB
-      </h2>
+      <h2 className="total-payment">Total Donations: {donate} THB</h2>
       <div className="card-container">
         {charities.map((item: Charity, i) => {
           return (
@@ -43,10 +78,19 @@ const App = () => {
               imgalt={item?.name}
               imgsrc={`/images/${item?.image}`}
               place={item?.name}
+              handlerPay={(amount: number) => {
+                handlerPay(item.id, amount, item.currency);
+              }}
             />
           );
         })}
       </div>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+        }}
+      />
     </Layout>
   );
 };
@@ -109,109 +153,3 @@ const Layout = styled.div`
     }
   }
 `;
-
-// const Card = styled.div`
-//   margin: 10px;
-//   border: 1px solid #ccc;
-// `;
-
-// export default connect((state) => state)(
-//   class App extends Component {
-//     state = {
-//       charities: [],
-//       selectedAmount: 10,
-//     };
-
-//     componentDidMount() {
-//       const self = this;
-//       fetch('http://localhost:3001/charities')
-//         .then(function (resp) {
-//           return resp.json();
-//         })
-//         .then(function (data) {
-//           self.setState({ charities: data });
-//         });
-
-//       fetch('http://localhost:3001/payments')
-//         .then(function (resp) {
-//           return resp.json();
-//         })
-//         .then(function (data) {
-//           self.props.dispatch({
-//             type: 'UPDATE_TOTAL_DONATE',
-//             amount: summaryDonations(data.map((item) => item.amount)),
-//           });
-//         });
-//     }
-
-//     render() {
-//       const self = this;
-//       const cards = this.state.charities.map(function (item, i) {
-//         const payments = [10, 20, 50, 100, 500].map((amount, j) => (
-//           <label key={j}>
-//             <input
-//               type="radio"
-//               name="payment"
-//               onClick={function () {
-//                 self.setState({ selectedAmount: amount });
-//               }}
-//             />
-//             {amount}
-//           </label>
-//         ));
-
-//         return (
-//           <Card key={i}>
-//             <p>{item.name}</p>
-//             {payments}
-//             <button
-//               onClick={handlePay.call(
-//                 self,
-//                 item.id,
-//                 self.state.selectedAmount,
-//                 item.currency,
-//               )}
-//             >
-//               Pay
-//             </button>
-//           </Card>
-//         );
-//       });
-
-//       const style = {
-//         color: 'red',
-//         margin: '1em 0',
-//         fontWeight: 'bold',
-//         fontSize: '16px',
-//         textAlign: 'center',
-//       };
-
-//       const donate = this.props.donate;
-//       const message = this.props.message;
-
-//       return (
-//         <div>
-//           <h1>Tamboon React</h1>
-//           <p>All donations: {donate}</p>
-//           <p style={style}>{message}</p>
-//           {cards}
-//         </div>
-//       );
-//     }
-//   },
-// );
-
-/**
- * Handle pay button
- * 
- * @param {*} The charities Id
- * @param {*} amount The amount was selected
- * @param {*} currency The currency
- * 
- * @example
- * fetch('http://localhost:3001/payments', {
-      method: 'POST',
-      body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
-    })
- */
-// function handlePay(id, amount, currency) {}

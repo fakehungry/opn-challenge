@@ -90,5 +90,10 @@ export const Container = styled.div`
     h2 {
       font-size: 14px;
     }
+
+    svg {
+      top: 10px;
+      right: 10px;
+    }
   }
 `;

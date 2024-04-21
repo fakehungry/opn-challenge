@@ -30,4 +30,20 @@ describe('card component', () => {
     fireEvent.click(getByTestId('x-mark-icon') as HTMLElement);
     expect(queryByText('Select the amount to donate (THB)')).toBeNull();
   });
+
+  it('should close overlay when pay btn is clicked', () => {
+    const { getByText, queryByText } = renderProvider(<Card {...props} />);
+    const donateBtn = getByText('Donate');
+    fireEvent.click(donateBtn);
+    fireEvent.click(getByText('Pay') as HTMLElement);
+    expect(queryByText('Select the amount to donate (THB)')).toBeNull();
+  });
+
+  it('should render card component with selected amount and match snapshot', () => {
+    const { container, getByText } = renderProvider(<Card {...props} />);
+    const donateBtn = getByText('Donate');
+    fireEvent.click(donateBtn);
+    fireEvent.click(getByText('100') as HTMLElement);
+    expect(container).toMatchSnapshot();
+  });
 });
