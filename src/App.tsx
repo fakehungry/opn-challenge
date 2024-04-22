@@ -56,7 +56,6 @@ const App = () => {
 
       if (res.ok) {
         dispatch(updateDonation(amount));
-        const data = await res.json();
         toast.success(
           `${amount} ${currency} has been donated to ${charities[id - 1].name} successfully`,
         );
@@ -78,7 +77,7 @@ const App = () => {
               imgalt={item?.name}
               imgsrc={`/images/${item?.image}`}
               place={item?.name}
-              handlerPay={(amount: number) => {
+              handlerpay={(amount: number) => {
                 handlerPay(item.id, amount, item.currency);
               }}
             />

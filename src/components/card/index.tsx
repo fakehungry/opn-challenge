@@ -6,17 +6,17 @@ import { useTheme } from 'styled-components';
 import Radio from '../radio';
 import { donateAmount } from './donateAmount';
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardProps {
   place: string;
   imgsrc: string;
   imgalt: string;
-  donateBtnProps?: ButtonProps;
+  donateBtnProps?: Omit<ButtonProps, 'onClick'>;
   payBtnProps?: Omit<ButtonProps, 'onClick'>;
-  handlerPay?: (amount: number) => void;
+  handlerpay?: (amount: number) => void;
 }
 
 export const Card = (props: CardProps) => {
-  const { place, imgsrc, imgalt, donateBtnProps, payBtnProps, handlerPay } =
+  const { place, imgsrc, imgalt, donateBtnProps, payBtnProps, handlerpay } =
     props;
 
   const theme = useTheme();
@@ -25,7 +25,7 @@ export const Card = (props: CardProps) => {
   const [selectedAmount, setSelectedAmount] = useState(0);
 
   return (
-    <Container {...props}>
+    <Container>
       <img src={imgsrc} alt={imgalt} />
       <div className="row">
         <h2>{place}</h2>
@@ -62,7 +62,7 @@ export const Card = (props: CardProps) => {
             <Button
               onClick={() => {
                 setIsOverlayVisible(false);
-                handlerPay && handlerPay(selectedAmount);
+                handlerpay && handlerpay(selectedAmount);
               }}
               {...payBtnProps}
             >
