@@ -4,9 +4,6 @@ exports[`card component should render card component and match snapshot 1`] = `
 <div>
   <div
     class="sc-beySPh csDOYD"
-    imgalt="Baan Kru Noi"
-    imgsrc="/images/baan-kru-noi.jpg"
-    place="Baan Kru Noi"
   >
     <img
       alt="Baan Kru Noi"
@@ -32,9 +29,6 @@ exports[`card component should render card component with overlay and match snap
 <div>
   <div
     class="sc-beySPh csDOYD"
-    imgalt="Baan Kru Noi"
-    imgsrc="/images/baan-kru-noi.jpg"
-    place="Baan Kru Noi"
   >
     <img
       alt="Baan Kru Noi"
@@ -166,9 +160,6 @@ exports[`card component should render card component with selected amount and ma
 <div>
   <div
     class="sc-beySPh csDOYD"
-    imgalt="Baan Kru Noi"
-    imgsrc="/images/baan-kru-noi.jpg"
-    place="Baan Kru Noi"
   >
     <img
       alt="Baan Kru Noi"
