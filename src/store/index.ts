@@ -5,7 +5,7 @@ import nationalizeReducer from '../features/nationalize/nationalize-slice';
 export const store = configureStore({
   reducer: {
     donations: donationReducer,
-    weather: nationalizeReducer,
+    nationalize: nationalizeReducer,
   },
 });
 
