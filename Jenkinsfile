@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    yarn jest --ci --reporters=default --reporters=jest-junit
+                    yarn test --coverage
                 '''
             }
         }
@@ -34,6 +34,7 @@ pipeline {
     post {
       always {
         junit 'junit.xml'
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage/lcov-report', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: '', useWrapperFileDirectly: true])
       }
     }
 }
