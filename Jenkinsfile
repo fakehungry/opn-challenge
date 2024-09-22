@@ -14,7 +14,7 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    yarn ci
+                    yarn install --frozen-lockfile
                     yarn client
                     ls -la
                 '''
