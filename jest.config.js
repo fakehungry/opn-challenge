@@ -9,4 +9,5 @@ module.exports = {
   },
   moduleDirectories: ['./node_modules', 'src'],
   setupFilesAfterEnv: ['<rootDir>/src/utils/jest-setup.ts'],
+  reporters: ['default', 'jest-junit'],
 };
