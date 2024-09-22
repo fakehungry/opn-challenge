@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        NETLIFY_SITE_ID = 'e176cc4d-5b70-4f10-89fa-2d19173a4168'
+        NETLIFY_TOKEN = credentials('netlify-token')
+    }
+
     stages {
         stage('Build') {
             agent {
@@ -40,7 +45,8 @@ pipeline {
             steps {
                 sh '''
                     yarn add netlify-cli
-                    node_modules/.bin/netlify --version
+                    node_modules/.bin/netlify status
+                    node_modules/.bin/netlify deploy --dir=storybook-static --prod
                 '''
             }
         }
