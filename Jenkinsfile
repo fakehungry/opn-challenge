@@ -25,15 +25,15 @@ pipeline {
             }
             steps {
                 sh '''
-                    yarn test
+                    yarn jest --ci --reporters=default --reporters=jest-junit
                 '''
             }
         }
     }
 
-    post {
-      always {
-        junit 'junit.xml'
-      }
-    }
+    // post {
+    //   always {
+    //     junit 'junit.xml'
+    //   }
+    // }
 }
