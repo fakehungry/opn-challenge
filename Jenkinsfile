@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             agent {
               docker {
                 image 'node:18-alpine'
@@ -10,13 +10,17 @@ pipeline {
               }
             }
             steps {
+                cleanWs()
                 sh '''
-                    ls -la
-                    node --version
-                    npm --version
                     yarn install --frozen-lockfile
-                    yarn client
-                    ls -la
+                '''
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh '''
+                    yarn test
                 '''
             }
         }
