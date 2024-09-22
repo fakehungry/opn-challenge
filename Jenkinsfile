@@ -31,9 +31,9 @@ pipeline {
         }
     }
 
-    // post {
-    //   always {
-    //     junit 'junit.xml'
-    //   }
-    // }
+    post {
+      always {
+        junit '/junit.xml'
+      }
+    }
 }
