@@ -40,7 +40,7 @@ pipeline {
             steps {
                 sh '''
                     yarn add netlify-cli
-                    netlify --version
+                    node_modules/.bin/netlify --version
                 '''
             }
         }
