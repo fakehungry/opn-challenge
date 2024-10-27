@@ -141,7 +141,6 @@ const DraggableTable = <T extends { id: string }>(
           </SortableContext>
         </tbody>
       </table>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </DndContext>
   );
 };
